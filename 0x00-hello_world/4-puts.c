@@ -1,13 +1,17 @@
 /*Prints a string onto the screen.*/
 #include <stdio.h>
 
-int main(void)
-/* Comment for "main" function
- * Prints a string unto the screen.
+/**
+ * main - Prints "Programming is like building a multilingual
+ * puzzle, followed by a new line.
+ *
+ *
+ * Return: Always return 0
  */
-	{
+int main(void)
+{
 
 	puts("\"Programming is like building a multilingual puzzle");
 	return (0);
 
-	}
+}

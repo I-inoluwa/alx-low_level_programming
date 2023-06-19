@@ -22,7 +22,7 @@ int main(void)
 
 	if (last == 0)
 	{
-		end_string = "is zero";
+		end_string = "and is 0";
 	}
 	else if (last > 5)
 	{

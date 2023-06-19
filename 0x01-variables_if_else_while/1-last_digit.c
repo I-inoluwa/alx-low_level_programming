@@ -14,11 +14,10 @@ int main(void)
 {
 	int n;
 	char *end_string;
+	int last;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	int last;
-
 	last = n % 10;
 
 	if (last == 0)

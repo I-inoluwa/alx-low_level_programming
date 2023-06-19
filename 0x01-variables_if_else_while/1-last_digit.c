@@ -17,15 +17,15 @@ int main(void)
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	int last_digit;
+	int last;
 
-	last_digit = n % 10;
+	last = n % 10;
 
-	if (last_digit == 0)
+	if (last == 0)
 	{
 		end_string = "is zero";
 	}
-	else if (last_digit > 5)
+	else if (last > 5)
 	{
 		end_string = "and is greater than 5";
 	}
@@ -33,7 +33,7 @@ int main(void)
 	{
 		end_string = "and is less than 6 and not 0";
 	}
-	printf("Last digit of %d is %d %s\n", n, last_digit, end_string);
+	printf("Last digit of %d is %d %s\n", n, last, end_string);
 
 	return (0);
 }

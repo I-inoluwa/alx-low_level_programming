@@ -7,8 +7,8 @@
   * Return: returns (0)
   */
 
-main()
+int main(void)
 {
-	printf("_putchar");
+	printf("_putchar\n");
 	return (0);
 }

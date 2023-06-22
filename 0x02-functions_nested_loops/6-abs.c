@@ -6,7 +6,7 @@
   * Return: Always 0
   */
 
-int _abs(n)
+int _abs(int n)
 {
 	_putchar(abs(n));
 	return (0);

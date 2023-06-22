@@ -2,12 +2,12 @@
 
 /**
   * _abs- computes the absolute value of an integer
-  * @int: integer parameter.
+  * @n: integer parameter.
   * Return: Always 0
   */
 
-int _abs(int)
+int _abs(n)
 {
-	_putchar(abs(int));
+	_putchar(abs(n));
 	return (0);
 }

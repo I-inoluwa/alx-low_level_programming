@@ -17,8 +17,11 @@ void times_table(void)
 			product = num1 * num2;
 			_putchar((product / 10) + '0');
 			_putchar((product % 10) + '0');
-			_putchar(',');
-			_putchar(' ');
+			if (product != 81)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
 		}
 		_putchar('\n');
 	}

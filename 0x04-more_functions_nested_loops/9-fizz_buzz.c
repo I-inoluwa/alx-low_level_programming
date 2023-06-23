@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
   * main - Prints the number 1 to 100, followed by a new line;
@@ -32,4 +33,5 @@ int main(void)
 		printf(" ");
 	}
 	printf("\n");
+	return (0);
 }

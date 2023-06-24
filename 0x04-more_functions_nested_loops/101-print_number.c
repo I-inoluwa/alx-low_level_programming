@@ -39,5 +39,4 @@ void print_number(int n)
 			pow /= 10;
 		}
 	}
-	_putchar('\n');
 }

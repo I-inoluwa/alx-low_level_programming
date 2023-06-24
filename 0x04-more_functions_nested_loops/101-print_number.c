@@ -9,9 +9,7 @@
 void print_number(int n)
 {
 	int pow;
-	int i;
 
-	i = 0;
 	pow = 1;
 	if (n == 0)
 	{
@@ -19,28 +17,27 @@ void print_number(int n)
 	}
 	else
 	{
-		while (i >= 0)
+		if (n < 0)
 		{
-			if ((n / pow) == 0)
-			{
-				pow /= 10;
-				i -= 1;
-				break;
-			}
-			pow *= 10;
-			i += 1;
+			_putchar('-');
+			n = (-1) * n;
 		}
-		while (i >= 0)
+
+		while ((n / pow) >= 10)
 		{
-			if (n < 0)
-			{
-				_putchar('-');
-				n = (-1 * n);
-			}
+			pow *= 10;
+		}
+
+		while (pow > 0)
+		{
 			_putchar((n / pow) + '0');
-			n -= ((n / pow) * pow);
+			/*
+			 * n -= ((n/pow) * pow);
+			 * same thing as:
+			 */
+			n %= pow;
 			pow /= 10;
-			i -= 1;
 		}
 	}
+	_putchar('\n');
 }

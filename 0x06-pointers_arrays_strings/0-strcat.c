@@ -19,12 +19,12 @@ char *_strcat(char *dest, char *src)
 		if (dest[next] == '\0')
 		{
 			count = 0;
-			result += src[count];
 			if (src[count] == '\0')
 			{
 				result += '\0';
 				break;
 			}
+			result += src[count];
 		}
 		else
 		{

@@ -1,0 +1,268 @@
+!<arch>
+0-isupper.c/    0           0     0     644     276       `
+#include "main.h"
+
+/**
+  * _isupper - checks for upper case characters
+  * @c: character input to be checked.
+  * Return: returns 1 if c is uppercase,
+  * otherwise, 0.
+  */
+
+int _isupper(int c)
+{
+	if ((c >= 'A') && (c <= 'Z'))
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+}
+0-memset.c/     0           0     0     644     0         `
+0-strcat.c/     0           0     0     644     552       `
+#include "main.h"
+
+/**
+  * _strcat - concatenates two strings.
+  * @dest: first string
+  * @src: source. appended to dest.
+  * Return: returns the new string (concatenated string).
+  */
+char *_strcat(char *dest, char *src)
+{
+	char *result;
+	int count, next;
+
+	count = 0;
+	next = 0;
+	result = "";
+	while (count >= 0)
+	{
+		if (dest[next] == '\0')
+		{
+			count = 0;
+			if (src[count] == '\0')
+			{
+				result += '\0';
+				break;
+			}
+			result += src[count];
+		}
+		else
+		{
+			result += dest[count];
+			next = count;
+		}
+		count++;
+	}
+	return (result);
+}
+100-atoi.c/     0           0     0     644     0         `
+1-isdigit.c/    0           0     0     644     266       `
+#include "main.h"
+
+/**
+  * _isdigit - checks for a digit (0 through 9)
+  * @c: digit to be checked.
+  * Return: returns (1) if c is a digit,
+  * otherwise, 0.
+  */
+
+int _isdigit(int c)
+{
+	if ((c >= '0') && (c <= '9'))
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+}
+1-memcpy.c/     0           0     0     644     0         `
+1-strncat.c/    0           0     0     644     576       `
+#include "main.h"
+
+/**
+  * _strncat - concatenates two strings, and uses at most n bytes from src.
+  * @dest: string to be concatenated.
+  * @src: second string to be concantenated.
+  * @n: number of bytes from src to be used.
+  * Return: returns a string.
+  */
+
+char *_strncat(char *dest, char *src, int n)
+{
+	int count, i;
+
+	count = 0;
+	while (count >= 0)
+	{
+		if (dest[count] == '\0')
+		{
+			break;
+		}
+		count++;
+	}
+
+	i = 0;
+	while ((i >= 0) && (i < n))
+	{
+		if (src[i] == '\0')
+		{
+			break;
+		}
+		dest[count++] = src[i];
+		i++;
+	}
+	dest[count] = '\0';
+	return (dest);
+}
+2-strchr.c/     0           0     0     644     0         `
+2-strlen.c/     0           0     0     644     312       `
+#include "main.h"
+
+/**
+  * _strlen - returns the length of a string.
+  * @s: pointer to the string / char
+  * Return: returns an integer (length of string);
+  */
+
+int _strlen(char *s)
+{
+	int length;
+
+	length = 0;
+	while (length >= 0)
+	{
+		if (*(s++) == '\0')
+		{
+			break;
+		}
+		length++;
+	}
+	return (length);
+}
+2-strncpy.c/    0           0     0     644     395       `
+#include "main.h"
+
+/**
+  * _strncpy - copies a string.
+  * @dest: output string.
+  * @src: string to be copied.
+  * @n: byte of src to be copied.
+  * Return: returns dest.
+  */
+
+char *_strncpy(char *dest, char *src, int n)
+{
+	int i = 0;
+
+	while ((i >= 0) && (i < n))
+	{
+		if (src[i] == '\0')
+		{
+			dest[i] = '\0';
+			break;
+		}
+		else
+		{
+			dest[i] = src[i];
+			i++;
+		}
+	}
+
+	return (dest);
+}
+
+3-islower.c/    0           0     0     644     272       `
+#include "main.h"
+
+/**
+  * _islower - checks for lowercase characters
+  * @c: lowercase parameter
+  * Return: returns 1 if true, and 0 if false.
+  */
+
+int _islower(int c)
+{
+	int ltr;
+
+	for (ltr = 'a'; ltr <= 'z'; ltr++)
+	{
+		if (c == ltr)
+			return (1);
+	}
+	return (0);
+}
+3-puts.c/       0           0     0     644     308       `
+#include "main.h"
+
+/**
+  * _puts - prints a string, followed by a new line to the screen.
+  * @str: string to be printed.
+  * Return: returns nothing.
+  */
+
+void _puts(char *str)
+{
+	int i;
+
+	i = 0;
+	while (i >= 0)
+	{
+		if (str[i] == '\0')
+		{
+			_putchar('\n');
+			break;
+		}
+		_putchar(str[i]);
+		i++;
+	}
+}
+3-strcmp.c/     0           0     0     644     0         `
+3-strspn.c/     0           0     0     644     0         `
+4-isalpha.c/    0           0     0     644     272       `
+#include "main.h"
+
+/**
+  * _islower - checks for lowercase characters
+  * @c: lowercase parameter
+  * Return: returns 1 if true, and 0 if false.
+  */
+
+int _islower(int c)
+{
+	int ltr;
+
+	for (ltr = 'a'; ltr <= 'z'; ltr++)
+	{
+		if (c == ltr)
+			return (1);
+	}
+	return (0);
+}
+4-strpbrk.c/    0           0     0     644     0         `
+5-strstr.c/     0           0     0     644     0         `
+6-abs.c/        0           0     0     644     195       `
+#include "main.h"
+
+/**
+  * _abs- computes the absolute value of an integer
+  * @n: integer parameter.
+  * Return: Always 0
+  */
+
+int _abs(int n)
+{
+	if (n < 0)
+	{
+		return (-n);
+	}
+	return (n);
+}
+
+9-strcpy.c/     0           0     0     644     0         `
+_putchar.c/     0           0     0     644     0         `

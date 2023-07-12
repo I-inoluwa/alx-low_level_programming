@@ -21,7 +21,10 @@ char *create_array(unsigned int size, char c)
 
 	for (i = 0; i < (sizeof(arr) / sizeof(char)); i++)
 	{
-		*(arr + i) = c;
+		if (i == 0)
+		{
+			*(arr + i) = c;
+		}
 	}
 	/*
 	 *free(arr);

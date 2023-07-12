@@ -13,21 +13,21 @@ char *create_array(unsigned int size, char c)
 	char *arr;
 	int i;
 
+	if (size == 0)
+		return (NULL);
+
 	arr = malloc(size);
-	if (size == 0 || arr == NULL)
+	if (arr == NULL)
 	{
 		return (NULL);
 	}
 
-	for (i = 0; i < sizeof(arr); i++)
+	i = 0;
+	while (size)
 	{
-		if (i == 0)
-		{
-			*(arr + i) = c;
-		}
+		*(arr + i) = c;
+		i++;
+		size--;
 	}
-	/*
-	 *free(arr);
-	 */
 	return (arr);
 }

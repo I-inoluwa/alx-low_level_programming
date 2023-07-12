@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * _strdup - returns a pointer to a memory space, containing a str.
+ * _strdup - returns a pointer to a memory space, containing a str;
  * @str: a string to be copied.
  * Return: returns a pointer to a memory space;
  */
@@ -10,19 +10,26 @@
 char *_strdup(char *str)
 {
 	char *s;
-	int i;
+	int i, strlen;
 
-	i = 0;
-	s = malloc(sizeof(str));
+	strlen = 0;
+	for (i = 0; str[i]; i++)
+	{
+		strlen++;
+	}
+	s = malloc((strlen + 1) * sizeof(char));
 	if (str == NULL || s == NULL)
 	{
 		return (NULL);
 	}
-	while (*(str + i) != '\0')
+
+	i = 0;
+	while (str[i])
 	{
 		s[i] = str[i];
 		i++;
 	}
+	s[i] = '\0';
 
 	return (s);
 }

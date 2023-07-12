@@ -40,7 +40,7 @@ char *argstostr(int ac, char **av)
 		{
 			s[i++] = (*(av + count))[each_len];
 		}
-		s[i++] = 'n\';
+		s[i++] = '\n';
 	}
 
 	s[strlen] = '\0';

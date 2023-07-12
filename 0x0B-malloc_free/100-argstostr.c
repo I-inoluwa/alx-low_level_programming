@@ -19,9 +19,9 @@ char *argstostr(int ac, char **av)
 	}
 
 	strlen = 0;
-	for (count = 0, count < ac; count++)
+	for (count = 0; count < ac; count++)
 	{
-		for (each_len = 0, (*(av + count))[each_len]; each_len++)
+		for (each_len = 0; (*(av + count))[each_len]; each_len++)
 		{
 			strlen++;
 		}
@@ -36,7 +36,7 @@ char *argstostr(int ac, char **av)
 	i = 0;
 	for (count = 0; count < ac; count++)
 	{
-		for (each_len = 0, (*(av + count))[each_len]; each_len++)
+		for (each_len = 0; (*(av + count))[each_len]; each_len++)
 		{
 			s[i++] = (*(av + count))[each_len];
 		}

@@ -21,12 +21,12 @@ char *argstostr(int ac, char **av)
 	strlen = 0;
 	for (count = 0; count < ac; count++)
 	{
-		for (each_len = 0; (*(av + count))[each_len]; each_len++)
+		for (each_len = 0; av[count][each_len]; each_len++)
 		{
 			strlen++;
 		}
 	}
-	s = malloc(sizeof(char) * (strlen + 1));
+	s = malloc(sizeof(char) * (strlen + ac + 1));
 
 	if (s == NULL)
 	{
@@ -36,13 +36,13 @@ char *argstostr(int ac, char **av)
 	i = 0;
 	for (count = 0; count < ac; count++)
 	{
-		for (each_len = 0; (*(av + count))[each_len]; each_len++)
+		for (each_len = 0; av[count][each_len]; each_len++)
 		{
-			s[i++] = (*(av + count))[each_len];
+			s[i++] = av[count][each_len];
 		}
 		s[i++] = '\n';
 	}
 
-	s[strlen] = '\0';
+	s[i] = '\0';
 	return (s);
 }

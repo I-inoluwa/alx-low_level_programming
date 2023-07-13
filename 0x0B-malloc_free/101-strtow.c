@@ -69,7 +69,7 @@ char **strtow(char *str)
 	int *int_arr;
 	int i, j, width, height, ref;
 
-	if (str == NULL || str == "")
+	if (str == NULL || *str == '\0')
 		return (NULL);
 	height = get_arr_len(str);
 	arr = malloc((sizeof(char *)) * (height + 1));

@@ -20,6 +20,8 @@ int get_arr_len(char *str)
 			{
 				i++;
 			}
+			if (str[j] == '\0')
+				return (height);
 			height++;
 			continue;
 		}
@@ -73,7 +75,7 @@ char **strtow(char *str)
 		return (NULL);
 	height = get_arr_len(str);
 	arr = malloc((sizeof(char *)) * (height + 1));
-	if (arr == NULL)
+	if (arr == NULL || height == 0)
 		return (NULL);
 
 	i = 0, height = 0, ref = 0;

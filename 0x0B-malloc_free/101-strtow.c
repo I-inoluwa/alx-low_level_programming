@@ -12,7 +12,7 @@ char **strtow(char *str)
 	char **arr;
 	int i, j, width, height, ref;
 
-	if (str == NULL || str == "")
+	if ((str == NULL) || (str == ""))
 		return (NULL);
 
 	height = 1;

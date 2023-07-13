@@ -31,7 +31,7 @@ char **strtow(char *str)
 		i++;
 	}
 
-	arr = malloc((sizeof(char *)) * height);
+	arr = malloc((sizeof(char *)) * (height + 1));
 	if (arr == NULL)
 	{
 		return (NULL);
@@ -54,6 +54,8 @@ char **strtow(char *str)
 		if (width == 0)
 		{
 			ref = i;
+			if (str[i] == '\0')
+				return (NULL);
 			continue;
 		}
 		*(arr + height) = malloc((sizeof(char)) * (width + 1));

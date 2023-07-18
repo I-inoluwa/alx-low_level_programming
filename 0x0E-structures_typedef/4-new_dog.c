@@ -16,7 +16,7 @@ char *_strcpy(char *string)
 		return (NULL);
 
 	for (len = 0; string[len]; len++)
-		;
+		i = len;
 
 	cpy = malloc(sizeof(char) * len);
 	if (cpy == NULL)

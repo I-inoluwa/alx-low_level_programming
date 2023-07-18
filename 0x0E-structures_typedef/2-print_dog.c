@@ -4,7 +4,7 @@
 
 /**
   * print_dog - function tha tprints struct dog.
-  * @d: struct dog datatype.
+  * @n: struct dog datatype.
   * Return: returns void;
   */
 

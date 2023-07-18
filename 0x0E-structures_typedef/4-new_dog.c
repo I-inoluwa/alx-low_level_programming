@@ -12,7 +12,7 @@ char *_strcpy(char *string)
 	int len, i;
 	char *cpy;
 
-	if (string == NULL)
+	if (*string == '\0')
 		return (NULL);
 
 	for (len = 0; string[len]; len++)

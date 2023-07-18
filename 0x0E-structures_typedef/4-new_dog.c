@@ -2,6 +2,33 @@
 #include <stdlib.h>
 
 /**
+  * _strcpy - creates a copy of a string
+  * @string: string to be copied.
+  * Return: returns a string.
+  */
+
+char *_strcpy(char *string)
+{
+	int len, i;
+	char *cpy;
+
+	if (string == NULL)
+		return (NULL);
+
+	for (len = 0; string[len]; len++)
+		;
+
+	cpy = malloc(sizeof(char) * len);
+	if (cpy == NULL)
+		return (NULL);
+
+	for (i = 0; i <= len; i++)
+		cpy[i] = string[i];
+
+	return (cpy);
+}
+
+/**
   * new_dog - creates a new dog.
   * @name: name of dog.
   * @age: age of dog.
@@ -12,7 +39,8 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *doggo;
-	int i;
+	int i, count;
+	char *namecpy, *ownercpy;
 
 	doggo = malloc(sizeof(dog_t));
 	if (doggo == NULL)
@@ -20,25 +48,18 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	doggo->age = age;
 
-	if (name == NULL)
+	namecpy = _strcpy(name);
+	if (namecpy == NULL)
 	{
-		doggo->name = NULL;
+		return (NULL);
 	}
-	else
+	doggo->name = namecpy;
+
+	ownercpy = _strcpy(owner);
+	if (ownercpy == NULL)
 	{
-		for (i = 0; name[i]; i++)
-		{
-			doggo->name[i] = name[i];
-		}
-		doggo->name[i] = '\0';
+		return (NULL);
 	}
-
-	for (i = 0; owner[i]; i++)
-	{
-		doggo->owner[i] = owner[i];
-	}
-
-	free(doggo);
-
+	doggo->owner = ownercpy;
 	return (doggo);
 }

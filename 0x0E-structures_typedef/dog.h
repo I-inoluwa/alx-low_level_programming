@@ -23,7 +23,5 @@ void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
 dog_t *new_dog(char *name, float age, char *owner);
 
-#include "4-new_dog.c"
-
 #endif
 

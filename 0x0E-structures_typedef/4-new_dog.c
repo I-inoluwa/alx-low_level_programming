@@ -2,12 +2,12 @@
 #include <stdlib.h>
 
 /**
-  * _strcpy - creates a copy of a string
+  * sstrcpy - creates a copy of a string
   * @string: string to be copied.
   * Return: returns a string.
   */
 
-char *_strcpy(char *string)
+char *sstrcpy(char *string)
 {
 	int len, i;
 	char *cpy;
@@ -39,7 +39,6 @@ char *_strcpy(char *string)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *doggo;
-	int i, count;
 	char *namecpy, *ownercpy;
 
 	doggo = malloc(sizeof(dog_t));
@@ -48,14 +47,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	doggo->age = age;
 
-	namecpy = _strcpy(name);
+	namecpy = sstrcpy(name);
 	if (*namecpy == '\0')
 	{
 		return (NULL);
 	}
 	doggo->name = namecpy;
 
-	ownercpy = _strcpy(owner);
+	ownercpy = sstrcpy(owner);
 	if (*ownercpy == '\0')
 	{
 		return (NULL);

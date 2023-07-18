@@ -49,14 +49,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 	doggo->age = age;
 
 	namecpy = _strcpy(name);
-	if (namecpy == NULL)
+	if (*namecpy == '\0')
 	{
 		return (NULL);
 	}
 	doggo->name = namecpy;
 
 	ownercpy = _strcpy(owner);
-	if (ownercpy == NULL)
+	if (*ownercpy == '\0')
 	{
 		return (NULL);
 	}

@@ -24,7 +24,6 @@ char *sstrcpy(char *string)
 
 	for (i = 0; i <= len; i++)
 		cpy[i] = string[i];
-
 	return (cpy);
 }
 
@@ -60,5 +59,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 	doggo->owner = ownercpy;
+
+	free(doggo->name);
+	free(doggo->owner);
+	free(doggo);
 	return (doggo);
 }

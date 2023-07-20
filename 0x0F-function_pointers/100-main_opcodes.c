@@ -10,9 +10,11 @@
 
 int main(int argc, char *argv[])
 {
-	int num;
+	int num, i;
 	char *opcodes;
-	int (*pointer)(int, char **) = main;
+	/*
+	   *int (*pointer)(int, char **) = main;
+	   */
 
 	if (argc != 2)
 	{
@@ -28,9 +30,9 @@ int main(int argc, char *argv[])
 		return (2);
 	}
 
-	opcodes = (unsigned char *)pointer;
+	opcodes = (char *)main;
 
-	for (int i = 0; i < num; i++)
+	for (i = 0; i < num; i++)
 	{
 		printf("%.2x", *opcodes);
 
@@ -38,7 +40,7 @@ int main(int argc, char *argv[])
 		{
 			printf(" ");
 		}
-		pointer++;
+		opcodes++;
 	}
 	printf("\n");
 

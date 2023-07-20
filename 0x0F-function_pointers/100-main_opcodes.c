@@ -11,7 +11,8 @@
 int main(int argc, char *argv[])
 {
 	int num;
-	unsigned char *pointer;
+	char *opcodes;
+	int (*pointer)(int, char **) = main;
 
 	if (argc != 2)
 	{
@@ -27,11 +28,11 @@ int main(int argc, char *argv[])
 		return (2);
 	}
 
-	pointer = (unsigned char *)main;
+	opcodes = (unsigned char *)pointer;
 
 	for (int i = 0; i < num; i++)
 	{
-		printf("%.2x", *pointer);
+		printf("%.2x", *opcodes);
 
 		if (i != num - 1)
 		{

@@ -15,8 +15,10 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_list num_args;
 
 	if (n == 0)
+	{
+		printf("\n");
 		return;
-
+	}
 	va_start(num_args, n);
 	for (i = 0; i < n; i++)
 	{

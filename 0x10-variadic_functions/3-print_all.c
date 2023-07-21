@@ -41,7 +41,7 @@ void print_all(const char * const format, ...)
 	while (format[n] != '\0')
 	{
 		fmt = format[n];
-		if (fmt == 'c' || fmt == 'f' || fmt == 'i' || fmt == 's')
+		while (fmt == 'c' || fmt == 'f' || fmt == 'i' || fmt == 's')
 		{
 			switch (format[n])
 			{
@@ -66,6 +66,7 @@ void print_all(const char * const format, ...)
 				printf(", ");
 				i++;
 			}
+			break;
 		}
 		n++;
 	}

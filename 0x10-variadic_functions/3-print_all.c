@@ -14,37 +14,38 @@ void print_all(const char * const format, ...)
 	char fmt;
 	unsigned int n = 0;
 
-	while (format == NULL)
-		return;
-
 	va_start(args, format);
-	while (format[n] != '\0')
+	if (format != NULL)
 	{
-		fmt = format[n];
-		if (fmt == 'c' || fmt == 'f' || fmt == 'i' || fmt == 's')
+		while (format[n] != '\0')
 		{
-			printf("%s", sep);
-			switch (format[n])
+			fmt = format[n];
+			while (fmt == 'c' || fmt == 'f' || fmt == 'i' || fmt == 's')
 			{
-				case 'c':
-					printf("%c", va_arg(args, int));
-					break;
-				case 's':
-					each = va_arg(args, char *);
-					if (each == NULL)
-						each = "(nil)";
-					printf("%s", each);
-					break;
-				case 'i':
-					printf("%d", va_arg(args, int));
-					break;
-				case 'f':
-					printf("%f", va_arg(args, double));
-					break;
+				printf("%s", sep);
+				switch (format[n])
+				{
+					case 'c':
+						printf("%c", va_arg(args, int));
+						break;
+					case 's':
+						each = va_arg(args, char *);
+						if (each == NULL)
+							each = "(nil)";
+						printf("%s", each);
+						break;
+					case 'i':
+						printf("%d", va_arg(args, int));
+						break;
+					case 'f':
+						printf("%f", va_arg(args, double));
+						break;
+				}
+				sep = ", ";
+				break;
 			}
-			sep = ", ";
+			n++;
 		}
-		n++;
 	}
 	va_end(args);
 	printf("\n");

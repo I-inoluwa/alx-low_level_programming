@@ -9,14 +9,17 @@
 
 unsigned int len(const char * const format)
 {
-	unsigned int i = 0;
+	unsigned int i, n;
 	char fmt;
 
-	while (format[i] != '\0')
+	i = 0, n = 0;
+	while (format[n] != '\0')
 	{
-		fmt = format[i];
+		fmt = format[n];
 		if (fmt == 'c' || fmt == 'f' || fmt == 'i' || fmt == 's')
 			i++;
+
+		n++;
 	}
 	return (i);
 }
@@ -29,39 +32,40 @@ unsigned int len(const char * const format)
 
 void print_all(const char * const format, ...)
 {
-	unsigned int n, i;
 	va_list args;
 	char *each;
+	char fmt;
+	unsigned int n = 0, i = 0;
 
-	if (format == NULL)
-		return;
-
-	n = 0, i = 0;
 	va_start(args, format);
 	while (format[n] != '\0')
 	{
-		switch (format[n])
+		fmt = format[n];
+		if (fmt == 'c' || fmt == 'f' || fmt == 'i' || fmt == 's')
 		{
-			case 'c':
-				printf("%c", va_arg(args, int));
-				break;
-			case 's':
-				each = va_arg(args, char *);
-				if (each == NULL)
-					each = "(nil)";
-				printf("%s", each);
-				break;
-			case 'i':
-				printf("%d", va_arg(args, int));
-				break;
-			case 'f':
-				printf("%f", va_arg(args, double));
-				break;
-		}
-		if (i < (len(format) - 1))
-		{
-			printf(", ");
-			i++;
+			switch (format[n])
+			{
+				case 'c':
+					printf("%c", va_arg(args, int));
+					break;
+				case 's':
+					each = va_arg(args, char *);
+					if (each == NULL)
+						each = "(nil)";
+					printf("%s", each);
+					break;
+				case 'i':
+					printf("%d", va_arg(args, int));
+					break;
+				case 'f':
+					printf("%f", va_arg(args, double));
+					break;
+			}
+			if (i < (len(format) - 1))
+			{
+				printf(", ");
+				i++;
+			}
 		}
 		n++;
 	}

@@ -2,29 +2,6 @@
 #include <stdio.h>
 
 /**
-  * len - finds length of a str, excluding certain chars.
-  * @format: string passed.
-  * Return: returns an integer;
-  */
-
-unsigned int len(const char * const format)
-{
-	unsigned int i, n;
-	char fmt;
-
-	i = 0, n = 0;
-	while (format[n] != '\0')
-	{
-		fmt = format[n];
-		if (fmt == 'c' || fmt == 'f' || fmt == 'i' || fmt == 's')
-			i++;
-
-		n++;
-	}
-	return (i);
-}
-
-/**
   * print_all - prints anything.
   * @format: list of all types of arguments passed.
   * Return: returns void;
@@ -33,16 +10,17 @@ unsigned int len(const char * const format)
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	char *each;
+	char *each, *sep = "";
 	char fmt;
-	unsigned int n = 0, i = 0;
+	unsigned int n = 0;
 
 	va_start(args, format);
 	while (format[n] != '\0')
 	{
 		fmt = format[n];
-		while (fmt == 'c' || fmt == 'f' || fmt == 'i' || fmt == 's')
+		if (fmt == 'c' || fmt == 'f' || fmt == 'i' || fmt == 's')
 		{
+			printf("%s", sep);
 			switch (format[n])
 			{
 				case 'c':
@@ -61,12 +39,7 @@ void print_all(const char * const format, ...)
 					printf("%f", va_arg(args, double));
 					break;
 			}
-			if (i < (len(format) - 1))
-			{
-				printf(", ");
-				i++;
-			}
-			break;
+			sep = ", ";
 		}
 		n++;
 	}

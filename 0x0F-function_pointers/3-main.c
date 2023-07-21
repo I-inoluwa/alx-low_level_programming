@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 		if (op_ptr == NULL)
 		{
 			printf("Error\n");
-			exit(98);
+			exit(99);
 		}
 		result = op_ptr(a, b);
 		printf("%d\n", result);
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 	else
 	{
 		printf("Error\n");
-		exit(99);
+		exit(98);
 	}
 	return (0);
 }

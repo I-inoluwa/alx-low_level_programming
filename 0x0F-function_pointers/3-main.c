@@ -8,20 +8,30 @@
   * Return: returns (0); otherwise, an exit code.
   */
 
-int main(int argc, char *argv)
+int main(int argc, char **argv)
 {
-	int a, b, result, i;
+	int a, b, result;
+	int (*op_ptr)(int, int);
+
 	if (argc == 4)
 	{
-		for (i = 0; argv[1][i] || argv[3][i]; i++)
+		a = atoi(argv[1]);
+		b = atoi(argv[3]);
+	
+		op_ptr = get_op_func(argv[2]);
+		if (op_ptr == NULL)
 		{
-			if ((argv[1][i] < '0' || argv[1][i] > '9') || (argv[3][i] < '0' || argv[3][i] > '9'))
-			{
-				printf("Error\n");
-				return (1);
-			}
+			printf("Error\n");
+			exit(98);
 		}
-	}
-}
+		result = op_ptr(a, b);
+		printf("%d\n", result);
 
-		
+	}
+	else
+	{
+		printf("Error\n");
+		exit(99);
+	}
+	return (0);
+}

@@ -11,21 +11,21 @@ void print_all(const char * const format, ...)
 {
 	va_list args;
 	char *each, *sep = "";
-	char fmt;
+	const char * const fmt = format;
 	unsigned int n = 0;
 
-	va_start(args, format);
-	if (format == NULL)
-		{
-			printf("%c", format[0]);
-		}
-	while (format[n] != '\0')
+	while (format == NULL)
 	{
-		fmt = format[n];
-		if (fmt == 'c' || fmt == 'f' || fmt == 'i' || fmt == 's')
+		printf("\n");
+		return;
+	}
+	va_start(args, format);
+	while (fmt[n] != '\0')
+	{
+		if (fmt[n] == 'c' || fmt[n] == 'f' || fmt[n] == 'i' || fmt[n] == 's')
 		{
 			printf("%s", sep);
-			switch (format[n])
+			switch (fmt[n])
 			{
 				case 'c':
 					printf("%c", va_arg(args, int));

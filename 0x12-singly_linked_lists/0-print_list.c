@@ -32,7 +32,7 @@ size_t print_list(const list_t *h)
 		len++;
 		tmp = tmp->next;
 	}
-	free(tmp);
+	/*free(tmp);*/
 
 	return (len);
 }

@@ -1,4 +1,5 @@
 #include "lists.h"
+#include "stdio.h"
 
 /**
  * free_list - function to free every memory allocated.
@@ -8,14 +9,14 @@
 
 void free_list(list_t *head)
 {
-	if (head == NULL)
+	list_t *tmp;
+
+	while(head != NULL)
 	{
+		tmp = head->next;
+		free(head->str);
 		free(head);
-		return;
+		head = tmp;
 	}
-
-	free_list(head->next);
-	free(head->str);
 	free(head);
-
 }

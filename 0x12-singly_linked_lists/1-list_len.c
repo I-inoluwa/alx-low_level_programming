@@ -11,10 +11,10 @@ size_t list_len(const list_t *h)
 	list_t *tmp;
 
 	tmp = malloc(sizeof(list_t));
-	if (tmp == NULL)
+	if (tmp == NULL || h == NULL)
 	{
 		free(tmp);
-		return (-1);
+		return (0);
 	}
 
 	tmp->str = h->str;

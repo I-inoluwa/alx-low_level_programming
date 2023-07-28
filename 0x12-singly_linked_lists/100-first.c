@@ -43,7 +43,7 @@ int before_main(void)
 	}
 	free(node2);
 	free(node1);
-	exit(99);
+	exit(100);
 
 	return (0);
 }

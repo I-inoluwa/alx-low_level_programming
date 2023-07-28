@@ -1,18 +1,18 @@
 extern printf
 
 section .data
-	msg db "Hello, Holberton", 10, 0
+	msg db "Hello, Holberton", 0
+	format db "%s", 10, 0
 
 section .text
-	global _start
+	global main
 
-_start:
-mov rdi, msg
+main:
+mov rdi, format
+mov rsi, msg
 mov rax, 0
 call printf
+add rsp, 8
 mov rdi, 0
 mov rax, 60
 syscall
-
-section .bss
-	buffer resb 64

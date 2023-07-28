@@ -1,5 +1,3 @@
-extern printf
-
 section .data
 	msg db "Hello, Holberton", 0
 	format db "%s", 10, 0
@@ -7,12 +5,14 @@ section .data
 section .text
 	global main
 
+extern printf
+
 main:
+push rbp
 mov rdi, format
 mov rsi, msg
 mov rax, 0
 call printf
-add rsp, 8
-mov rdi, 0
-mov rax, 60
+pop rbp
+mov rax, 0
 syscall

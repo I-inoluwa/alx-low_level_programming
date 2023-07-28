@@ -22,16 +22,16 @@ int _strlen(const char *s)
 
 
 /**
- * add_node - adds new nodes to a linked list.
- * @head: node to be added;
- * @str: str of the node to be added
- * Return: returns the address of the new element;
- * Otherwise, NULL on failure.
+ * add_node_end - adds a node to the end of a linked list;
+ * @head: linked list to be added to;
+ * @str: the string member of each node;
+ * Return: returns the address of the added node;
 */
 
-list_t *add_node(list_t **head, const char *str)
+
+list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *tmp;
+	list_t *tmp, *curr_item;
 
 	tmp = malloc(sizeof(list_t));
 	if (tmp == NULL)
@@ -42,11 +42,24 @@ list_t *add_node(list_t **head, const char *str)
 
 	if (str == NULL)
 		str = "(nil)";
-
 	tmp->str = strdup(str);
 	tmp->len = _strlen(str);
-	tmp->next = *head;
-	*head = tmp;
+	tmp->next = NULL;
+
+	if (*head == NULL)
+	{
+		*head = tmp;
+	}
+	else
+	{
+		curr_item = *head;
+		while (curr_item->next != NULL)
+		{
+			curr_item = curr_item->next;
+		}
+
+		curr_item->next = tmp;
+	}
 
 	return (tmp);
 }

@@ -18,5 +18,7 @@ int _re_sqr(int n, int i);
 int _divisible(int n, int i);
 int _strlen(char *s);
 int check_str(char *str, int i, int len);
+int is_wildcard(char *str, const int i, int count);
+int check_char(char *str1, char *str2, int i, int j, int t);
 
 #endif

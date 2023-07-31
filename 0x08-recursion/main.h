@@ -16,5 +16,7 @@ int wildcmp(char *s1, char *s2);
 
 int _re_sqr(int n, int i);
 int _divisible(int n, int i);
+int _strlen(char *s);
+int check_str(char *str, int i, int len);
 
 #endif

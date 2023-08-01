@@ -9,20 +9,11 @@
 
 size_t print_listint(const listint_t *h)
 {
-	listint_t *ptr;
+	const listint_t *ptr = h;
 	size_t count = 0;
 
-	ptr = malloc(sizeof(listint_t));
-	if (ptr == NULL)
-	{
-		free(ptr);
-		return (0);
-	}
 	if (h == NULL)
 		return (0);
-
-	ptr->n = h->n;
-	ptr->next = h->next;
 
 	while (ptr != NULL)
 	{

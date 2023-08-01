@@ -2,7 +2,8 @@
 
 /**
  * get_nodeint_at_index - gets node at an index;
-{
+ * @head: linked list
+ * 
 */
 
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)

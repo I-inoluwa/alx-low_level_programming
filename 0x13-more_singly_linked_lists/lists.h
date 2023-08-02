@@ -17,6 +17,24 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+
+/**
+ * struct list - a resemblance of an array;
+ * @a: array value 1;
+ * @b: array value 2;
+ * 
+ * Description: a is a flag, and b is the value;
+ * 
+*/
+
+typedef struct list
+{
+	size_t a;
+	size_t b;
+}
+int_list;
+
+
 size_t print_listint(const listint_t *h);
 size_t listint_len(const listint_t *h);
 listint_t *add_nodeint(listint_t **head, const int n);

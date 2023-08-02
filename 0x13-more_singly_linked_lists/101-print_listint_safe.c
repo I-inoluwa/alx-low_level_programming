@@ -15,7 +15,10 @@ int_list *list_len(const listint_t *head)
 
 	cache->a = 0;
 	if (head == NULL)
-		return (0);
+	{
+		cache->b = 0;
+		return (cache);
+	}
 
 	while (fast != NULL)
 	{
@@ -59,9 +62,6 @@ size_t print_listint_safe(const listint_t *head)
 	int_list *cache = list_len(head);
 	size_t len = cache->b, i = 0, is_looped = cache->a;
 	const listint_t *tmp = head;
-
-	if (head == NULL)
-		return (0);
 
 	while (i < len)
 	{

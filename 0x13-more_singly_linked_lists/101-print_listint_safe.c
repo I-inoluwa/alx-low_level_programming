@@ -60,6 +60,9 @@ size_t print_listint_safe(const listint_t *head)
 	size_t len = cache->b, i = 0, is_looped = cache->a;
 	const listint_t *tmp = head;
 
+	if (head == NULL)
+		return (0);
+
 	while (i < len)
 	{
 		printf("[%p] %d\n", (void *)tmp, tmp->n);

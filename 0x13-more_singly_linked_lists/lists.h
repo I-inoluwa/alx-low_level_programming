@@ -51,5 +51,7 @@ size_t print_listint_safe(const listint_t *head);
 size_t free_listint_safe(listint_t **h);
 listint_t *find_listint_loop(listint_t *head);
 
+size_t list_len_cpy(listint_t *head);
+int_list *list_len(const listint_t *head);
 
 #endif

@@ -22,9 +22,9 @@ typedef struct listint_s
  * struct list - a resemblance of an array;
  * @a: array value 1;
  * @b: array value 2;
- * 
+ *
  * Description: a is a flag, and b is the value;
- * 
+ *
 */
 
 typedef struct list

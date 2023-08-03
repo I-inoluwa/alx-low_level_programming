@@ -12,7 +12,7 @@ int clear_bit(unsigned long int *n, unsigned int index)
 	unsigned long int bit_check = 1, tmp = *n;
 	unsigned int i = 0;
 
-	if (index >= 64)
+	if (index >= (sizeof(unsigned long int) * 8))
 		return (-1);
 
 	while (i < index)

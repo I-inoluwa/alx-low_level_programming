@@ -36,7 +36,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (strcmp(new->key, head->key) == 0)
 			{
 				free(head->value);
-				head->value  = strdup(new->value);
+				head->value = strdup(new->value);
+				free_node(new);
 				flag = 0;
 				break;
 			}
@@ -49,6 +50,21 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			(ht->array)[hash] = new;
 		}
 	}
-
 	return (1);
+}
+
+/**
+ * free_node - frees an hash node;
+ * @node: node to be freed;
+ * Return: returns nothing;
+ */
+
+void free_node(hash_node_t *node)
+{
+	if (node == NULL)
+		return;
+
+	free(node->value);
+	free(node->key);
+	free(node);
 }

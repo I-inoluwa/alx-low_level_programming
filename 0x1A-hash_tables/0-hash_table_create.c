@@ -16,7 +16,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 		return (NULL);
 
 	new = malloc(sizeof(hash_table_t));
-	arr = malloc(sizeof(hash_node_t) * (size + 1));
+	arr = malloc(sizeof(hash_node_t) * (size));
 	if (new == NULL || arr == NULL)
 	{
 		free(new);
@@ -28,7 +28,6 @@ hash_table_t *hash_table_create(unsigned long int size)
 		arr[i] = NULL;
 
 	new->array = arr;
-	(new->array)[size] = NULL;
 
 	return (new);
 }

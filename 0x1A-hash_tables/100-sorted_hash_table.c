@@ -28,7 +28,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 	new->shead = NULL;
 	new->stail = NULL;
 	for (i = 0; i < size; i++)
-		arr[i] = new->shead;
+		arr[i] = NULL;
 
 	new->array = arr;
 
@@ -83,7 +83,7 @@ void sks(shash_table_t *ht, shash_node_t *new, unsigned long int hash)
 
 unsigned int skh(shash_table_t *ht, shash_node_t *new, unsigned long int hash)
 {
-	shash_node_t *head = (ht->array)[hash], *cur = NULL;
+	shash_node_t *head = (ht->array)[hash];
 
 	while (head != NULL)
 	{
@@ -96,21 +96,13 @@ unsigned int skh(shash_table_t *ht, shash_node_t *new, unsigned long int hash)
 			free(new);
 			return (1);
 		}
-		if (strcmp(new->key, head->key) < 0)
-		{
-			new->next = head;
-			if (cur != NULL)
-				cur->next = new;
-			else
-				(ht->array)[hash] = new;
-			break;
-		}
-		cur = head;
 		head = head->next;
-		if (head == NULL)
-			cur->next = new;
 	}
 
+	head = (ht->array)[hash];
+	new->next = head;
+	(ht->array)[hash] = new;
+	
 	return (0);
 }
 

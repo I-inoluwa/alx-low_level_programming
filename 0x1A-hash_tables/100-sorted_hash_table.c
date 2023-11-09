@@ -102,7 +102,7 @@ unsigned int skh(shash_table_t *ht, shash_node_t *new, unsigned long int hash)
 	head = (ht->array)[hash];
 	new->next = head;
 	(ht->array)[hash] = new;
-	
+
 	return (0);
 }
 
